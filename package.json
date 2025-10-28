@@ -10,7 +10,6 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "animejs": "^4.2.2",
     "vue": "^3.5.22"
   },
   "devDependencies": {
