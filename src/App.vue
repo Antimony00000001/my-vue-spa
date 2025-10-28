@@ -3,8 +3,6 @@ import { ref } from 'vue'
 
 // --- 1. 个人简介数据 ---
 const profile = ref({
-  // [必须] 使用个人照片或 Logo，这里用占位符
-  avatar: 'https://via.placeholder.com/150/007AFF/FFFFFF?text=ME', 
   name: "你的名字",
   title: "前端开发者 | UI/UX 爱好者 | 终身学习者",
   bio: "你好！我是一名热衷于构建美观、易用 Web 界面的开发者。我痴迷于代码的简洁与高效，并始终在探索技术与设计之间的完美平衡。"
@@ -63,6 +61,7 @@ const socials = ref([
     svgIcon: "M22 4H2C.9 4 0 4.9 0 6v12c0 1.1 .9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM20 6l-8 5l-8-5h16zM2 18V8l10 6.2L22 8v10H2z"
   }
 ])
+
 </script>
 
 <template>
@@ -70,7 +69,7 @@ const socials = ref([
     <div class="content-container">
 
       <header class="profile">
-        <img :src="profile.avatar" alt="个人头像" class="avatar">
+        <div class="avatar">{{ profile.name.charAt(0) }}</div>
         <h1>{{ profile.name }}</h1>
         <p class="tagline">{{ profile.title }}</p>
         <p class="bio">{{ profile.bio }}</p>
@@ -114,192 +113,256 @@ const socials = ref([
         </div>
       </section>
 
-      <footer class="router-area">
-        <nav>
-          <RouterLink to="/">首页</RouterLink> |
-          <RouterLink to="/about">关于</RouterLink>
-        </nav>
-        <div class="router-content">
-          <RouterView />
-        </div>
-      </footer>
-
     </div>
   </div>
 </template>
 
 <style scoped>
-/* CSS 变量定义 (符合需求文档)
-  --primary-color: 现代蓝
-  --text-color: 深灰色
-  --text-secondary: 蓝灰色
-  --bg-color: 浅灰色 (页面背景)
-  --card-bg: 白色 (卡片背景)
-  --shadow: 微妙的阴影
-  --border-radius: 统一定义的圆角
-*/
+/* CSS 变量定义 */
 .page-wrapper {
-  --primary-color: #007AFF;
-  --text-color: #333333;
-  --text-secondary: #606F7B;
-  --bg-color: #F9F9F9;
-  --card-bg: #FFFFFF;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --border-radius: 8px;
+  --b3-theme-background: #f1f0f0; /* Editor Background */
+  --Sv--dialog-container: #e2e1e1; /* Dialogs and Containers */
+  --Sv-plugin-off-bg: #d0cfcf; /* Inactive Plugin/UI Elements */
+  --Sv-tab-inactive: #d4d3d3; /* Inactive tab bar items */
 
-  /* [需求 4.4] 全局系统字体栈 */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --primary-color: #A9B7C6; /* A soft, desaturated blue-grey for primary elements */
+  --accent-color: #8D9CA9; /* A slightly darker shade for accent */
+  --text-color: #2C3E50; /* Darker text for better contrast */
+  --text-secondary: #7F8C8D; /* Softer grey for secondary text */
+  --bg-color: var(--b3-theme-background); /* Use editor background as main page background */
+  --card-bg: var(--Sv--dialog-container); /* Use dialog container for card background */
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* More pronounced but still subtle shadow */
+  --border-radius: 16px; /* Larger border-radius for a softer, modern look */
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern font stack with Inter as primary */
   background-color: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* [需求 4.2] 内容居中容器 */
 .content-container {
-  max-width: 900px;
+  max-width: 1024px; /* Slightly wider content area for a more open feel */
   margin: 0 auto;
-  padding: 40px 20px; /* 顶部和底部 40px, 左右 20px (用于移动端) */
+  padding: 80px 40px; /* Increased padding for more breathing room */
+  box-sizing: border-box;
 }
 
-/* [需求 4.4] 字体层级 */
 h1, h2, h3 {
-  color: #2c3e50; /* 标题使用更深的颜色 */
-  font-weight: 600;
+  color: var(--text-color); /* Use text-color for headings */
+  font-weight: 700; /* Bolder headings */
+  line-height: 1.2;
 }
 h2.section-title {
-  font-size: 1.8rem;
+  font-size: 2.5rem; /* Larger section titles */
   text-align: center;
-  margin-top: 60px; /* [需求 4.2] 模块间距 */
-  margin-bottom: 30px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
+  margin-top: 100px; /* Increased module spacing */
+  margin-bottom: 50px;
+  position: relative;
+}
+h2.section-title::after {
+  content: '';
+  display: block;
+  width: 80px; /* Longer separator */
+  height: 4px; /* Thicker separator */
+  background-color: var(--primary-color);
+  margin: 20px auto 0;
+  border-radius: 2px;
 }
 p {
-  line-height: 1.6; /* [需求 4.4] 易读行高 */
+  line-height: 1.8; /* Increased line-height for readability */
+  color: var(--text-secondary); /* Use text-secondary for paragraphs */
+  font-size: 1.1rem;
 }
 
-/* --- 1. 个人简介 (Profile) 样式 --- */
-/* [需求 3.1] */
 .profile {
   text-align: center;
-  margin-bottom: 60px; /* [需求 4.2] 模块间距 */
+  margin-bottom: 100px; /* Increased module spacing */
+  padding-top: 40px; /* Add some padding to the top of the profile section */
 }
 .avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; /* [需求 3.1] 圆形头像 */
-  border: 4px solid var(--primary-color); /* [需求 4.3] 使用主色调 */
-  object-fit: cover;
-  margin-bottom: 15px;
-  box-shadow: var(--shadow);
+  width: 180px; /* Larger avatar */
+  height: 180px;
+  border-radius: 50%;
+  background-color: var(--primary-color); /* Use primary color for background */
+  color: white; /* White text for contrast */
+  font-size: 4rem; /* Large font size for initial */
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 25px; /* Center and add bottom margin */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* More pronounced and softer shadow */
+  border: none; /* Remove border as it's now a solid color */
 }
 .profile h1 {
-  font-size: 2.5rem;
-  margin: 15px 0 5px;
+  font-size: 3.8rem; /* Larger, more impactful name */
+  margin: 25px 0 10px;
+  letter-spacing: -0.04em; /* Tighter letter spacing for titles */
+  color: var(--text-color);
 }
 .profile .tagline {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--text-secondary);
   margin: 0;
   font-weight: 500;
 }
 .profile .bio {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 20px auto 0;
-  color: #555;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 30px auto 0;
+  color: var(--text-secondary);
 }
 
-/* --- 2. 个人项目 (Projects) 样式 --- */
-/* [需求 3.2] & [需求 4.5] */
 .project-grid {
   display: grid;
-  /* [需求 4.1] 响应式网格布局 */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted minmax for project cards */
+  gap: 40px; /* Increased gap for more separation */
 }
 .project-card {
   background: var(--card-bg);
-  border-radius: var(--border-radius); /* [需求 4.5] 卡片圆角 */
-  box-shadow: var(--shadow); /* [需求 4.5] 卡片阴影 */
-  padding: 25px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 35px; /* Increased padding */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: left;
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column;
+  justify-content: space-between; /* Push links to the bottom */
 }
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-10px); /* More noticeable lift on hover */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Stronger, more diffused shadow on hover */
 }
 .project-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: var(--primary-color);
 }
 .project-card p {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: var(--text-secondary);
+  flex-grow: 1; /* Allow description to take available space */
+}
+.project-links {
+  margin-top: 20px; /* Space above links */
 }
 .project-links a {
-  text-decoration: none; /* [需求 4.5] 移除下划线 */
+  text-decoration: none;
   color: var(--primary-color);
   font-weight: 600;
-  margin-right: 15px;
-  transition: color 0.2s; /* [需求 4.5] 平滑过渡 */
+  margin-right: 25px; /* Increased spacing between links */
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 5px; /* More space for the underline effect */
+}
+.project-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px; /* Thicker underline */
+  background-color: var(--accent-color); /* Use accent color for underline */
+  transition: width 0.3s ease-out;
+}
+.project-links a:hover::after {
+  width: 100%;
 }
 .project-links a:hover {
-  color: #0056b3; /* 主色调的深色版 */
+  color: var(--accent-color); /* Change color on hover */
 }
 
-/* --- 3. 社交链接 (Socials) 样式 --- */
-/* [需求 3.3] */
 .socials {
   text-align: center;
-  margin-bottom: 60px;
+  margin-top: 100px; /* Consistent module spacing */
+  margin-bottom: 100px;
 }
 .social-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px; /* 图标间距 */
+  gap: 50px; /* Increased icon spacing */
 }
 .social-link {
   color: var(--text-secondary);
-  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; /* [需求 4.5] */
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .social-link:hover {
-  color: var(--primary-color); /* [需求 4.5] 悬停变为主色调 */
-  transform: scale(1.1); /* [需求 4.5] 轻微上移 (放大) */
+  color: var(--primary-color); /* Use primary color on hover */
+  transform: scale(1.3); /* More pronounced scale on hover */
 }
 .social-link svg {
-  /* SVG 尺寸已在 <template> 中定义为 32x32 */
   display: block;
+  width: 40px; /* Larger icons */
+  height: 40px;
 }
 
-/* --- 4. 路由区域 (Footer) 样式 --- */
-.router-area {
-  text-align: center;
-  margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px solid #ddd;
-  color: #999;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-container {
+    padding: 60px 25px;
+  }
+  .profile h1 {
+    font-size: 3rem;
+  }
+  .profile .tagline {
+    font-size: 1.2rem;
+  }
+  .profile .bio {
+    font-size: 1.1rem;
+  }
+  h2.section-title {
+    font-size: 2rem;
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+  .project-card {
+    padding: 30px;
+  }
+  .project-card h3 {
+    font-size: 1.4rem;
+  }
+  .social-icons {
+    gap: 35px;
+  }
+  .social-link svg {
+    width: 35px;
+    height: 35px;
+  }
 }
-.router-area nav {
-  margin-bottom: 20px;
-}
-.router-area nav a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-weight: 500;
-  margin: 0 10px;
-  transition: color 0.2s;
-}
-.router-area nav a.router-link-exact-active {
-  color: var(--primary-color); /* 激活链接使用主色调 */
-}
-.router-content {
-  background: #eee;
-  padding: 20px;
-  border-radius: var(--border-radius);
-  color: #666;
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 40px 20px;
+  }
+  .profile h1 {
+    font-size: 2.5rem;
+  }
+  .avatar {
+    width: 140px;
+    height: 140px;
+  }
+  .profile .bio {
+    max-width: 95%;
+    font-size: 1rem;
+  }
+  h2.section-title {
+    font-size: 1.8rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .social-icons {
+    gap: 25px;
+  }
+  .social-link svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>
