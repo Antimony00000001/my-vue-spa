@@ -1,11 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, computed, onBeforeMount } from 'vue'
+import anime from 'animejs'
 
 // --- 1. 个人简介数据 ---
 const profile = ref({
   name: "你的名字",
   title: "前端开发者 | UI/UX 爱好者 | 终身学习者",
   bio: "你好！我是一名热衷于构建美观、易用 Web 界面的开发者。我痴迷于代码的简洁与高效，并始终在探索技术与设计之间的完美平衡。"
+})
+
+const nameLetters = computed(() => {
+  return profile.value.name.split('').map(letter => {
+    return {
+      char: letter === ' ' ? '\u00A0' : letter, // Replace space with non-breaking space
+      class: 'letter'
+    }
+  })
 })
 
 // --- 2. 个人项目数据 ---
@@ -62,6 +72,84 @@ const socials = ref([
   }
 ])
 
+// --- 4. 动画 ---
+const avatar = ref(null)
+const nameH1 = ref(null)
+const tagline = ref(null)
+const bio = ref(null)
+const projectCards = ref([])
+const socialLinks = ref([])
+
+onBeforeMount(() => {
+  projectCards.value = []
+  socialLinks.value = []
+})
+
+onMounted(() => {
+  const tl = anime.timeline({
+    easing: 'easeOutExpo',
+  });
+
+  tl.add({
+      targets: avatar.value,
+      scale: [0.5, 1],
+      opacity: [0, 1],
+      duration: 800,
+    })
+    .add({
+      targets: nameH1.value.querySelectorAll('.letter'),
+      translateY: ["1.1em", 0],
+      translateX: ["0.55em", 0],
+      translateZ: 0,
+      rotateZ: [180, 0],
+      duration: 750,
+      easing: "easeOutExpo",
+      delay: anime.stagger(50)
+    }, '-=200')
+    .add({
+      targets: tagline.value,
+      translateY: [20, 0],
+      opacity: [0, 1],
+      duration: 600
+    }, '-=600')
+    .add({
+      targets: bio.value,
+      translateY: [20, 0],
+      opacity: [0, 1],
+      duration: 600
+    }, '-=500')
+    .add({
+      targets: '.project-card',
+      translateY: [50, 0],
+      opacity: [0, 1],
+      duration: 500,
+      delay: anime.stagger(150)
+    }, '-=400')
+    .add({
+      targets: '.social-link',
+      translateY: [30, 0],
+      opacity: [0, 1],
+      duration: 400,
+      delay: anime.stagger(100)
+    }, '-=400');
+})
+
+function handleMouseMove(event) {
+  const card = event.currentTarget;
+  const { clientX, clientY } = event;
+  const { top, left, width, height } = card.getBoundingClientRect();
+  
+  const xRotation = 20 * ((clientY - top - height / 2) / height);
+  const yRotation = -20 * ((clientX - left - width / 2) / width);
+
+  card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale3d(1.05, 1.05, 1.05)`;
+}
+
+function handleMouseLeave(event) {
+  const card = event.currentTarget;
+  card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+}
+
 </script>
 
 <template>
@@ -69,16 +157,24 @@ const socials = ref([
     <div class="content-container">
 
       <header class="profile">
-        <div class="avatar">{{ profile.name.charAt(0) }}</div>
-        <h1>{{ profile.name }}</h1>
-        <p class="tagline">{{ profile.title }}</p>
-        <p class="bio">{{ profile.bio }}</p>
+        <div class="avatar" ref="avatar">{{ profile.name.charAt(0) }}</div>
+        <h1 ref="nameH1">
+          <span v-for="(letter, index) in nameLetters" :key="index" :class="letter.class" v-html="letter.char"></span>
+        </h1>
+        <p class="tagline" ref="tagline">{{ profile.title }}</p>
+        <p class="bio" ref="bio">{{ profile.bio }}</p>
       </header>
 
       <section class="projects">
         <h2 class="section-title">我的项目</h2>
         <div class="project-grid">
-          <div class="project-card" v-for="project in projects" :key="project.id">
+          <div 
+            class="project-card" 
+            v-for="project in projects" 
+            :key="project.id"
+            @mousemove="handleMouseMove"
+            @mouseleave="handleMouseLeave"
+          >
             <h3>{{ project.title }}</h3>
             <p>{{ project.description }}</p>
             <div class="project-links">
@@ -118,6 +214,19 @@ const socials = ref([
 </template>
 
 <style scoped>
+.letter {
+  display: inline-block;
+  opacity: 0;
+}
+
+.profile, .projects, .socials {
+  opacity: 1; /* Reset opacity as we are animating children */
+}
+
+.avatar, .tagline, .bio, .project-card, .social-link {
+  opacity: 0; /* Initially hide elements that will be animated */
+}
+
 /* CSS 变量定义 */
 .page-wrapper {
   --b3-theme-background: #f1f0f0; /* Editor Background */
@@ -140,6 +249,7 @@ const socials = ref([
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrollbar from animations */
 }
 
 .content-container {
@@ -201,6 +311,8 @@ p {
   margin: 25px 0 10px;
   letter-spacing: -0.04em; /* Tighter letter spacing for titles */
   color: var(--text-color);
+  /* Add perspective for letter animation */
+  perspective: 400px;
 }
 .profile .tagline {
   font-size: 1.4rem;
@@ -219,21 +331,23 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted minmax for project cards */
   gap: 40px; /* Increased gap for more separation */
+  perspective: 1500px; /* Add perspective for 3D effect */
 }
 .project-card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 35px; /* Increased padding */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   text-align: left;
   display: flex; /* Use flexbox for internal layout */
   flex-direction: column;
   justify-content: space-between; /* Push links to the bottom */
+  will-change: transform; /* Optimize for transform changes */
 }
 .project-card:hover {
-  transform: translateY(-10px); /* More noticeable lift on hover */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Stronger, more diffused shadow on hover */
+  /* transform is now handled by JS */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 .project-card h3 {
   font-size: 1.6rem;
