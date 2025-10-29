@@ -132,6 +132,72 @@ onMounted(() => {
       duration: 400,
       delay: anime.stagger(100)
     }, '-=400');
+
+  // Mouse Trace Effect
+  const canvas = document.getElementById('mouse-trace-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const particleLife = 40; // How many frames a particle lives
+  const particleColor = '255, 120, 0'; // Orange RGB
+
+  function setCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  setCanvasSize();
+  window.addEventListener('resize', setCanvasSize);
+
+  class Particle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.size = 4; // Starting size
+      this.life = particleLife;
+      this.opacity = 1;
+      this.velocity = {
+        x: (Math.random() - 0.5) * 0.5, // Very small random velocity
+        y: (Math.random() - 0.5) * 0.5
+      };
+    }
+
+    draw() {
+      ctx.fillStyle = `rgba(${particleColor}, ${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    update() {
+      this.life--;
+      this.opacity = this.life / particleLife;
+      this.size *= 0.95; // Shrink over time
+      this.x += this.velocity.x;
+      this.y += this.velocity.y;
+    }
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    particles.push(new Particle(e.clientX, e.clientY));
+  });
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+
+    for (let i = 0; i < particles.length; i++) {
+      let p = particles[i];
+      p.update();
+      p.draw();
+
+      if (p.life < 0 || p.size < 0.1) {
+        particles.splice(i, 1);
+        i--;
+      }
+    }
+    requestAnimationFrame(animateParticles);
+  }
+
+  animateParticles();
 })
 
 function handleMouseMove(event) {
@@ -153,6 +219,7 @@ function handleMouseLeave(event) {
 </script>
 
 <template>
+  <canvas id="mouse-trace-canvas" class="mouse-trace-canvas"></canvas>
   <div class="page-wrapper">
     <button @click="toggleNav" class="nav-toggle-btn">
       <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -251,6 +318,17 @@ function handleMouseLeave(event) {
 </template>
 
 <style scoped>
+/* Mouse Trace Canvas */
+.mouse-trace-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Allow interaction with elements beneath the canvas */
+  z-index: 9999; /* Ensure it's on top of everything */
+}
+
 html {
   scroll-behavior: smooth;
 }
