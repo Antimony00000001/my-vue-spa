@@ -504,15 +504,10 @@ p {
 
 }
 
-
-
 .profile.section-with-wave::after {
-
-  background-color: var(--section-bg-2);
-
+  background-color: var(--section-bg-1);
+  transform: translateY(50%) scaleY(-1);
 }
-
-
 
 .academic-achievements.section-with-wave::after {
 
