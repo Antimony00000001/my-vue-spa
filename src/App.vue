@@ -173,18 +173,18 @@ function handleMouseLeave(event) {
         <div class="achievements-list">
           <h3>教育背景</h3>
           <ul>
-            <li>**XX大学** - 计算机科学与技术学士 (2018-2022)</li>
+            <li><strong>XX大学</strong> - 计算机科学与技术学士 (2018-2022)</li>
             <li>主修：软件工程、数据结构、算法设计</li>
           </ul>
           <h3>研究成果</h3>
           <ul>
-            <li>**基于机器学习的图像识别系统** - 毕业设计项目 (2022)</li>
+            <li><strong>基于机器学习的图像识别系统</strong> - 毕业设计项目 (2022)</li>
             <li>开发了一个能够识别多种物体的高精度图像识别模型。</li>
           </ul>
           <h3>荣誉与奖项</h3>
           <ul>
-            <li>**校级优秀毕业生** (2022)</li>
-            <li>**全国大学生软件设计大赛二等奖** (2021)</li>
+            <li><strong>校级优秀毕业生</strong> (2022)</li>
+            <li><strong>全国大学生软件设计大赛二等奖</strong> (2021)</li>
           </ul>
         </div>
       </section>
@@ -406,6 +406,15 @@ p {
   max-width: 800px;
   margin: 30px auto 0;
   color: var(--text-secondary);
+}
+
+.academic-achievements ul {
+  list-style: none; /* Remove bullet points */
+  padding-left: 0; /* Remove default padding */
+}
+
+.academic-achievements li {
+  margin-bottom: 8px; /* Add some spacing between list items */
 }
 
 .project-grid {
