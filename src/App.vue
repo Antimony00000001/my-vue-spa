@@ -410,8 +410,8 @@ p {
 
 .profile {
   text-align: center;
-  /* padding-top: 40px; */ /* Remove padding to eliminate empty space at the top */
-  padding-bottom: 100px; /* Restore bottom padding */
+  padding-top: 40px; /* Add padding to the top of the circular section */
+  padding-bottom: 10px; /* Greatly reduce bottom padding for the first section */
   background-color: var(--section-bg-1);
 }
 .avatar {
@@ -452,8 +452,8 @@ p {
 
 .academic-achievements {
   background-color: var(--section-bg-2);
-  padding-top: 100px; /* Restore top padding */
-  padding-bottom: 100px; /* Restore bottom padding */
+  padding-top: 10px; /* Greatly reduced top padding */
+  padding-bottom: 110px; /* Slightly increased bottom padding */
 }
 
 .academic-achievements ul {
@@ -557,8 +557,8 @@ p {
 
 .projects {
   background-color: var(--section-bg-3);
-  padding-top: 100px; /* Restore top padding */
-  padding-bottom: 100px; /* Restore bottom padding */
+  padding-top: 10px; /* Greatly reduced top padding */
+  padding-bottom: 110px; /* Slightly increased bottom padding */
 }
 
 .project-grid {
@@ -634,7 +634,8 @@ p {
 .socials {
   text-align: center;
   /* margin-bottom: 100px; */ /* Remove margin to eliminate empty space at the bottom */
-  padding-top: 100px; /* Restore top padding */
+  padding-top: 10px; /* Greatly reduced top padding */
+  padding-bottom: 110px; /* Slightly increased bottom padding */
   background-color: var(--section-bg-4);
 }
 .social-icons {
