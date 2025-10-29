@@ -5,7 +5,11 @@ import anime from 'animejs'
 // --- 1. 个人简介数据 ---
 const profile = ref({
   name: "MyName", // Example name
-  title: "Full-stack Engineer | Innovator | Lifelong Learner", // Example title
+  title: [
+    { text: "Self-starter", color: "#FF6347" },
+    { text: "Growing developer", color: "#4682B4" },
+    { text: "STEM Enthusiast", color: "#32CD32" }
+  ],
   bio: "Hello! I'm a passionate and creative Full-stack Engineer, focused on building high-performance, user-friendly web applications. I love solving complex problems and continuously learning new technologies to improve development efficiency and user experience." // Example bio
 })
 
@@ -70,7 +74,7 @@ const socials = ref([
 // --- 4. 动画 ---
 const avatar = ref(null)
 const nameH1 = ref(null)
-const tagline = ref(null)
+const taglineElements = ref([])
 const bio = ref(null)
 const projectCards = ref([])
 const socialLinks = ref([])
@@ -108,17 +112,18 @@ onMounted(() => {
       delay: anime.stagger(50)
     }, '-=200')
     .add({
-      targets: tagline.value,
+      targets: taglineElements.value,
       translateY: [20, 0],
       opacity: [0, 1],
-      duration: 600
-    }, '-=600')
+      duration: 600,
+      delay: anime.stagger(800)
+    }, '+=0')
     .add({
       targets: bio.value,
       translateY: [20, 0],
       opacity: [0, 1],
       duration: 600
-    }, '-=500')
+    }, '+=300')
     .add({
       targets: '.project-card',
       translateY: [50, 0],
@@ -247,7 +252,17 @@ function handleMouseLeave(event) {
           </h1>
         </div>
         <h2 class="section-title profile-section-title">About Me</h2>
-        <p class="tagline" ref="tagline">{{ profile.title }}</p>
+        <div class="tagline-container">
+          <span
+            v-for="(item, index) in profile.title"
+            :key="index"
+            class="tagline-item"
+            :style="{ color: item.color }"
+            ref="taglineElements"
+          >
+            {{ item.text }}
+          </span>
+        </div>
         <p class="bio" ref="bio">{{ profile.bio }}</p>
       </section>
 
@@ -413,14 +428,13 @@ html {
 
 .letter {
   display: inline-block;
-  opacity: 0;
 }
 
 .profile, .projects, .socials {
   opacity: 1; /* Reset opacity as we are animating children */
 }
 
-.avatar, .tagline, .bio, .project-card, .social-link {
+.avatar, .bio, .project-card, .social-link {
   opacity: 0; /* Initially hide elements that will be animated */
 }
 
@@ -529,12 +543,19 @@ p {
   margin-top: 30px; /* Reduced top margin */
   margin-bottom: 30px; /* Adjusted bottom margin */
 }
-.profile .tagline {
-  font-size: 1.4rem;
-  color: var(--text-secondary);
-  margin: 0;
-  font-weight: 500;
+.tagline-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
+.tagline-item {
+  font-size: 1.4rem;
+  font-weight: 500;
+  opacity: 0;
+}
+
 .profile .bio {
   font-size: 1.2rem;
   max-width: none;
