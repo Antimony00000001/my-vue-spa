@@ -320,6 +320,11 @@ html {
   --shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* More pronounced but still subtle shadow */
   --border-radius: 16px; /* Larger border-radius for a softer, modern look */
 
+  --section-bg-1: #f8f8f8; /* Lighter background for first section */
+  --section-bg-2: #e8e8e8; /* Slightly darker for second */
+  --section-bg-3: #f8f8f8; /* Lighter for third */
+  --section-bg-4: #e8e8e8; /* Slightly darker for fourth */
+
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern font stack with Inter as primary */
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -369,8 +374,9 @@ p {
 
 .profile {
   text-align: center;
-  margin-bottom: 100px; /* Increased module spacing */
   padding-top: 40px; /* Add some padding to the top of the profile section */
+  padding-bottom: 100px; /* Restore bottom padding */
+  background-color: var(--section-bg-1);
 }
 .avatar {
   width: 180px; /* Larger avatar */
@@ -408,6 +414,12 @@ p {
   color: var(--text-secondary);
 }
 
+.academic-achievements {
+  background-color: var(--section-bg-2);
+  padding-top: 100px; /* Restore top padding */
+  padding-bottom: 100px; /* Restore bottom padding */
+}
+
 .academic-achievements ul {
   list-style: none; /* Remove bullet points */
   padding-left: 0; /* Remove default padding */
@@ -415,6 +427,14 @@ p {
 
 .academic-achievements li {
   margin-bottom: 8px; /* Add some spacing between list items */
+}
+
+
+
+.projects {
+  background-color: var(--section-bg-3);
+  padding-top: 100px; /* Restore top padding */
+  padding-bottom: 100px; /* Restore bottom padding */
 }
 
 .project-grid {
@@ -489,8 +509,9 @@ p {
 
 .socials {
   text-align: center;
-  margin-top: 100px; /* Consistent module spacing */
   margin-bottom: 100px;
+  padding-top: 100px; /* Restore top padding */
+  background-color: var(--section-bg-4);
 }
 .social-icons {
   display: flex;
