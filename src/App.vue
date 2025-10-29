@@ -171,7 +171,7 @@ function handleMouseLeave(event) {
     </nav>
     <div class="content-container">
 
-      <section id="about-me" class="profile">
+      <section id="about-me" class="profile section-with-wave">
         <div class="avatar" ref="avatar">{{ profile.name.charAt(0) }}</div>
         <h1 ref="nameH1">
           <span v-for="(letter, index) in nameLetters" :key="index" :class="letter.class" v-html="letter.char"></span>
@@ -180,7 +180,7 @@ function handleMouseLeave(event) {
         <p class="bio" ref="bio">{{ profile.bio }}</p>
       </section>
 
-      <section id="academic-achievements" class="academic-achievements">
+      <section id="academic-achievements" class="academic-achievements section-with-wave">
         <h2 class="section-title">Academic Achievements</h2>
         <div class="achievements-list">
           <h3>Education Background</h3>
@@ -201,7 +201,7 @@ function handleMouseLeave(event) {
         </div>
       </section>
 
-      <section id="projects" class="projects">
+      <section id="projects" class="projects section-with-wave">
         <h2 class="section-title">My Projects</h2>
         <div class="project-grid">
           <div 
@@ -457,13 +457,106 @@ p {
 }
 
 .academic-achievements ul {
+
   list-style: none; /* Remove bullet points */
+
   padding-left: 0; /* Remove default padding */
+
 }
 
-.academic-achievements li {
-  margin-bottom: 8px; /* Add some spacing between list items */
+
+
+.section-with-wave {
+
+  position: relative;
+
+  padding-bottom: 100px; /* Ensure enough space for the wave */
+
 }
+
+
+
+.section-with-wave::after {
+
+  content: '';
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+    height: 120px; /* Increased height for a more pronounced wave */
+
+    background-color: transparent; /* Will be overridden by specific section styles */
+
+    border-top-left-radius: 100% 120px; /* Smoother, wider crest */
+
+    border-top-right-radius: 100% 120px; /* Smoother, wider crest */
+
+    transform: translateY(50%); /* Move half of the wave into the next section */
+
+    z-index: 1;
+
+    box-shadow: 0 -5px 0 0 rgba(255, 255, 255, 0.8); /* White line above the wave */
+
+}
+
+
+
+.profile.section-with-wave::after {
+
+  background-color: var(--section-bg-2);
+
+}
+
+
+
+.academic-achievements.section-with-wave::after {
+
+  background-color: var(--section-bg-3);
+
+}
+
+
+
+.projects.section-with-wave::after {
+
+  background-color: var(--section-bg-4);
+
+}
+
+
+
+/* Adjust padding for sections to accommodate the wave */
+
+.profile {
+
+  padding-bottom: 100px; /* Ensure enough space for the wave */
+
+}
+
+
+
+.academic-achievements {
+
+  padding-bottom: 100px; /* Ensure enough space for the wave */
+
+}
+
+
+
+.projects {
+
+  padding-bottom: 100px; /* Ensure enough space for the wave */
+
+}
+
+
+
+
 
 
 
