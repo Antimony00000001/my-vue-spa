@@ -4,7 +4,7 @@ import anime from 'animejs'
 
 // --- 1. 个人简介数据 ---
 const profile = ref({
-  name: "John Doe", // Example name
+  name: "MyName", // Example name
   title: "Full-stack Engineer | Innovator | Lifelong Learner", // Example title
   bio: "Hello! I'm a passionate and creative Full-stack Engineer, focused on building high-performance, user-friendly web applications. I love solving complex problems and continuously learning new technologies to improve development efficiency and user experience." // Example bio
 })
@@ -102,6 +102,7 @@ onMounted(() => {
       translateX: ["0.55em", 0],
       translateZ: 0,
       rotateZ: [180, 0],
+      opacity: [0, 1], /* Add this line to animate opacity */
       duration: 750,
       easing: "easeOutExpo",
       delay: anime.stagger(50)
@@ -239,10 +240,13 @@ function handleMouseLeave(event) {
     <div class="content-container">
 
       <section id="about-me" class="profile section-with-wave">
-        <img src="./assets/avatar.png" alt="Profile Avatar" class="avatar" ref="avatar">
-        <h1 ref="nameH1">
-          <span v-for="(letter, index) in nameLetters" :key="index" :class="letter.class" v-html="letter.char"></span>
-        </h1>
+        <div class="avatar-name-group">
+          <img src="./assets/avatar.png" alt="Profile Avatar" class="avatar" ref="avatar">
+          <h1 ref="nameH1">
+            <span v-for="(letter, index) in nameLetters" :key="index" :class="letter.class" v-html="letter.char"></span>
+          </h1>
+        </div>
+        <h2 class="section-title profile-section-title">About Me</h2>
         <p class="tagline" ref="tagline">{{ profile.title }}</p>
         <p class="bio" ref="bio">{{ profile.bio }}</p>
       </section>
@@ -487,10 +491,18 @@ p {
 }
 
 .profile {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 40px; /* Add padding to the top of the circular section */
   padding-bottom: 10px; /* Greatly reduce bottom padding for the first section */
   background-color: var(--section-bg-1);
+}
+.avatar-name-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 .avatar {
   width: 180px; /* Larger avatar */
@@ -503,17 +515,19 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 0px; /* Center and add bottom margin */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* More pronounced and softer shadow */
   object-fit: cover; /* Ensure the image covers the circular area */
 }
 .profile h1 {
   font-size: 3.8rem; /* Larger, more impactful name */
-  margin: 1px 0 10px;
+  margin: 0;
   letter-spacing: -0.04em; /* Tighter letter spacing for titles */
   color: var(--text-color);
   /* Add perspective for letter animation */
   perspective: 400px;
+}
+.profile-section-title {
+  margin-top: 30px; /* Reduced top margin */
+  margin-bottom: 30px; /* Adjusted bottom margin */
 }
 .profile .tagline {
   font-size: 1.4rem;
