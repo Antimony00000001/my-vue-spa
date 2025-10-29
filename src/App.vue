@@ -239,7 +239,7 @@ function handleMouseLeave(event) {
     <div class="content-container">
 
       <section id="about-me" class="profile section-with-wave">
-        <div class="avatar" ref="avatar">{{ profile.name.charAt(0) }}</div>
+        <img src="./assets/avatar.png" alt="Profile Avatar" class="avatar" ref="avatar">
         <h1 ref="nameH1">
           <span v-for="(letter, index) in nameLetters" :key="index" :class="letter.class" v-html="letter.char"></span>
         </h1>
@@ -503,13 +503,13 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 25px; /* Center and add bottom margin */
+  margin: 0 auto 0px; /* Center and add bottom margin */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* More pronounced and softer shadow */
-  border: none; /* Remove border as it's now a solid color */
+  object-fit: cover; /* Ensure the image covers the circular area */
 }
 .profile h1 {
   font-size: 3.8rem; /* Larger, more impactful name */
-  margin: 25px 0 10px;
+  margin: 1px 0 10px;
   letter-spacing: -0.04em; /* Tighter letter spacing for titles */
   color: var(--text-color);
   /* Add perspective for letter animation */
