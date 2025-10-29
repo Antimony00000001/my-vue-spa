@@ -349,8 +349,8 @@ html {
   --Sv-plugin-off-bg: #d0cfcf; /* Inactive Plugin/UI Elements */
   --Sv-tab-inactive: #d4d3d3; /* Inactive tab bar items */
 
-  --primary-color: #A9B7C6; /* A soft, desaturated blue-grey for primary elements */
-  --accent-color: #8D9CA9; /* A slightly darker shade for accent */
+  --primary-color: #8B4513; /* Saddle Brown */
+  --accent-color: #A0522D; /* Sienna */
   --text-color: #2C3E50; /* Darker text for better contrast */
   --text-secondary: #7F8C8D; /* Softer grey for secondary text */
   --bg-color: var(--b3-theme-background); /* Use editor background as main page background */
@@ -358,10 +358,10 @@ html {
   --shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* More pronounced but still subtle shadow */
   --border-radius: 16px; /* Larger border-radius for a softer, modern look */
 
-  --section-bg-1: #f8f8f8; /* Lighter background for first section */
-  --section-bg-2: #e8e8e8; /* Slightly darker for second */
-  --section-bg-3: #f8f8f8; /* Lighter for third */
-  --section-bg-4: #e8e8e8; /* Slightly darker for fourth */
+  --section-bg-1: #F5F5DC; /* Light Beige */
+  --section-bg-2: #D4E2D4; /* Soft Green */
+  --section-bg-3: #E0D8D0; /* Warm Grey */
+  --section-bg-4: #E6BEAE; /* Muted Orange/Terracotta */
 
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern font stack with Inter as primary */
   background-color: var(--bg-color);
@@ -377,9 +377,8 @@ html {
   /* flex-grow: 1; */ /* Remove flex-grow */
   max-width: none; /* Allow content to take full width */
   margin: 0; /* Remove auto margin */
-  padding: 80px 0; /* Remove horizontal padding for full width content */
+  padding: 0; /* Remove all padding for full width and height content */
   box-sizing: border-box;
-  padding-top: 80px; /* Add padding to the top to account for the floating nav */
 }
 
 h1, h2, h3 {
@@ -411,7 +410,7 @@ p {
 
 .profile {
   text-align: center;
-  padding-top: 40px; /* Add some padding to the top of the profile section */
+  /* padding-top: 40px; */ /* Remove padding to eliminate empty space at the top */
   padding-bottom: 100px; /* Restore bottom padding */
   background-color: var(--section-bg-1);
 }
@@ -546,7 +545,7 @@ p {
 
 .socials {
   text-align: center;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */ /* Remove margin to eliminate empty space at the bottom */
   padding-top: 100px; /* Restore top padding */
   background-color: var(--section-bg-4);
 }
