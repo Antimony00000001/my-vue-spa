@@ -281,7 +281,7 @@ html {
 .main-nav {
   position: fixed;
   top: 0;
-  left: -200px; /* Start off-screen */
+  transform: translateX(-100%); /* Start off-screen using transform */
   width: 180px;
   height: 100vh; /* Full height */
   background-color: var(--card-bg);
@@ -292,11 +292,11 @@ html {
   border-radius: 0; /* No border-radius for full height */
   display: flex;
   flex-direction: column;
-  transition: left 0.3s ease; /* Smooth transition */
+  transition: transform 0.3s ease; /* Smooth transition for transform */
 }
 
 .main-nav.is-open {
-  left: 0; /* Slide in */
+  transform: translateX(0); /* Slide in */
 }
 
 .main-nav ul {
@@ -377,7 +377,7 @@ html {
   /* flex-grow: 1; */ /* Remove flex-grow */
   max-width: none; /* Allow content to take full width */
   margin: 0; /* Remove auto margin */
-  padding: 80px 40px; /* Adjust padding for full width content */
+  padding: 80px 0; /* Remove horizontal padding for full width content */
   box-sizing: border-box;
   padding-top: 80px; /* Add padding to the top to account for the floating nav */
 }
