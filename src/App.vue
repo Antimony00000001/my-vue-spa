@@ -4,9 +4,9 @@ import anime from 'animejs'
 
 // --- 1. 个人简介数据 ---
 const profile = ref({
-  name: "你的名字",
-  title: "前端开发者 | UI/UX 爱好者 | 终身学习者",
-  bio: "你好！我是一名热衷于构建美观、易用 Web 界面的开发者。我痴迷于代码的简洁与高效，并始终在探索技术与设计之间的完美平衡。"
+  name: "张三", // Example name
+  title: "全栈工程师 | 创新者 | 持续学习者", // Example title
+  bio: "你好！我是一名充满激情和创造力的全栈工程师，专注于构建高性能、用户友好的Web应用程序。我热爱解决复杂问题，并不断学习新技术以提升开发效率和用户体验。" // Example bio
 })
 
 const nameLetters = computed(() => {
@@ -22,20 +22,22 @@ const nameLetters = computed(() => {
 const projects = ref([
   {
     id: 1,
-    title: "个人网站",
-    description: "我的个人网站，展示我的作品集和技术博客。",
-    image: "/src/assets/p2-streamlit-preview.png", // Assuming this image is suitable or will be replaced
+    title: "个人作品集网站",
+    description: "使用 Vue 3 和 Vite 构建的响应式个人网站，展示我的前端开发技能、项目经验和技术博客文章。",
+    image: "/src/assets/p2-streamlit-preview.png",
     links: [
-      { text: "访问网站", url: "https://your-personal-website.com" } // Placeholder URL
+      { text: "访问网站", url: "https://your-personal-website.com" },
+      { text: "GitHub", url: "https://github.com/your-username/personal-website" }
     ]
   },
   {
     id: 2,
-    title: "时间表生成器",
-    description: "一个帮助用户快速生成个性化时间表的工具。",
-    image: "/src/assets/p2-streamlit-preview.png", // Placeholder image, user can replace later
+    title: "智能时间表生成器",
+    description: "一个基于AI算法的智能时间表生成工具，用户可自定义课程、活动和偏好，自动生成最优时间安排。",
+    image: "/src/assets/p2-streamlit-preview.png",
     links: [
-      { text: "查看详情", url: "#" } // Placeholder URL
+      { text: "查看演示", url: "#" },
+      { text: "GitHub", url: "https://github.com/your-username/schedule-generator" }
     ]
   }
 ])
@@ -45,21 +47,21 @@ const socials = ref([
   {
     id: 1,
     name: "GitHub",
-    url: "https://github.com/你的用户名", // 替换成你自己的链接
+    url: "https://github.com/your-username", // Example GitHub URL
     // GitHub Icon SVG Path
     svgIcon: "M9 19c-4.3 1.4 -4.3-1.8 -5-2.2c.7 0 1.4-.3 2.1-.7c-1.3-.3 -2.3-1.4 -2.3-2.8c0-1.3 .5-2.3 1.3-3.1c-.1-.3 -.6-1.5 .1-3.1c0 0 1-.3 3.3 1.2c1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2c.7 1.6 .2 2.8 .1 3.1c.8 .8 1.3 1.8 1.3 3.1c0 1.4-1 2.5-2.3 2.8c.7 .4 1.3 1.1 1.3 2.2c0 1.6-.0 2.9-.0 3.3c0 .3 .2 .7 .7 .6c3.7-1.2 6.3-4.5 6.3-8.5C22 6.1 17.9 2 12 2S2 6.1 2 12c0 4 2.6 7.3 6.3 8.5c.5 .1 .7-.3 .7-.6c0-.4-.0-1.7-.0-3.3z"
   },
   {
     id: 2,
-    name: "稀土掘金", // 或 LinkedIn
-    url: "https://juejin.cn/user/你的ID", // 替换成你自己的链接
-    // Juejin (Si) Icon SVG Path (简化的 "Si" 图标)
-    svgIcon: "M12 2.5l8.25 15H3.75L12 2.5z M12 6.34L6.37 16h11.26L12 6.34z"
+    name: "LinkedIn", // Changed to LinkedIn for a more common professional network
+    url: "https://www.linkedin.com/in/your-profile", // Example LinkedIn URL
+    // LinkedIn Icon SVG Path (simplified)
+    svgIcon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.159V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.923-2.063-2.065 0-1.145.92-2.066 2.063-2.066 1.145 0 2.064.922 2.064 2.066 0 1.142-.92 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454c.98 0 1.772-.773 1.772-1.729V1.729C24 .774 23.204 0 22.225 0z"
   },
   {
     id: 3,
     name: "Email",
-    url: "mailto:youremail@example.com", // 替换成你自己的链接
+    url: "mailto:your-email@example.com", // Example Email URL
     // Email Icon SVG Path
     svgIcon: "M22 4H2C.9 4 0 4.9 0 6v12c0 1.1 .9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM20 6l-8 5l-8-5h16zM2 18V8l10 6.2L22 8v10H2z"
   }
@@ -147,18 +149,47 @@ function handleMouseLeave(event) {
 
 <template>
   <div class="page-wrapper">
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#about-me">关于我</a></li>
+        <li><a href="#academic-achievements">学术成就</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </nav>
     <div class="content-container">
 
-      <header class="profile">
+      <section id="about-me" class="profile">
         <div class="avatar" ref="avatar">{{ profile.name.charAt(0) }}</div>
         <h1 ref="nameH1">
           <span v-for="(letter, index) in nameLetters" :key="index" :class="letter.class" v-html="letter.char"></span>
         </h1>
         <p class="tagline" ref="tagline">{{ profile.title }}</p>
         <p class="bio" ref="bio">{{ profile.bio }}</p>
-      </header>
+      </section>
 
-      <section class="projects">
+      <section id="academic-achievements" class="academic-achievements">
+        <h2 class="section-title">学术成就</h2>
+        <div class="achievements-list">
+          <h3>教育背景</h3>
+          <ul>
+            <li>**XX大学** - 计算机科学与技术学士 (2018-2022)</li>
+            <li>主修：软件工程、数据结构、算法设计</li>
+          </ul>
+          <h3>研究成果</h3>
+          <ul>
+            <li>**基于机器学习的图像识别系统** - 毕业设计项目 (2022)</li>
+            <li>开发了一个能够识别多种物体的高精度图像识别模型。</li>
+          </ul>
+          <h3>荣誉与奖项</h3>
+          <ul>
+            <li>**校级优秀毕业生** (2022)</li>
+            <li>**全国大学生软件设计大赛二等奖** (2021)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
         <h2 class="section-title">我的项目</h2>
         <div class="project-grid">
           <div 
@@ -185,7 +216,7 @@ function handleMouseLeave(event) {
         </div>
       </section>
 
-      <section class="socials">
+      <section id="contact" class="socials">
         <h2 class="section-title">联系我</h2>
         <div class="social-icons">
           <a 
@@ -208,6 +239,58 @@ function handleMouseLeave(event) {
 </template>
 
 <style scoped>
+html {
+  scroll-behavior: smooth;
+}
+
+.main-nav {
+  position: fixed;
+  top: 20px; /* Offset from top */
+  left: 20px; /* Offset from left */
+  width: 180px; /* Smaller width */
+  /* height: 100vh; */ /* Remove full height */
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  padding: 20px; /* Adjust padding */
+  text-align: center; /* Center text */
+  border-radius: var(--border-radius); /* Rounded corners */
+  /* overflow-y: auto; */ /* Remove scrolling for now, can add if needed */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */ /* Remove align-items */
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  gap: 10px; /* Adjust gap between links */
+  width: 100%; /* Take full width of nav */
+}
+
+.main-nav li {
+  width: 100%;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1rem; /* Slightly smaller font size */
+  padding: 10px 15px; /* Adjust padding for links */
+  border-radius: 8px; /* Rounded corners for links */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: block; /* Make links block level for full width click area */
+}
+
+.main-nav a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
 .letter {
   display: inline-block;
   opacity: 0;
@@ -241,16 +324,20 @@ function handleMouseLeave(event) {
   background-color: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
-  width: 100%;
+  width: 100%; /* Restore width: 100% */
   box-sizing: border-box;
   overflow-x: hidden; /* Prevent horizontal scrollbar from animations */
+  /* display: flex; */ /* Remove flexbox for layout */
 }
 
 .content-container {
+  /* flex-grow: 1; */ /* Remove flex-grow */
   max-width: 1024px; /* Slightly wider content area for a more open feel */
-  margin: 0 auto;
+  margin: 0 auto; /* Center the content */
   padding: 80px 40px; /* Increased padding for more breathing room */
   box-sizing: border-box;
+  /* margin-left: 250px; */ /* Remove offset for the fixed left navigation */
+  padding-top: 80px; /* Add padding to the top to account for the floating nav */
 }
 
 h1, h2, h3 {
