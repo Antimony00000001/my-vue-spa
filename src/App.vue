@@ -22,27 +22,20 @@ const nameLetters = computed(() => {
 const projects = ref([
   {
     id: 1,
-    title: "项目一：个人网站 v1.0",
-    description: "一个使用 Vue 3 和 Vite 构建的现代、响应式单页应用，用于展示个人作品集。",
+    title: "个人网站",
+    description: "我的个人网站，展示我的作品集和技术博客。",
+    image: "/src/assets/p2-streamlit-preview.png", // Assuming this image is suitable or will be replaced
     links: [
-      { text: "GitHub 仓库", url: "#" } // 替换成你自己的链接
+      { text: "访问网站", url: "https://your-personal-website.com" } // Placeholder URL
     ]
   },
   {
     id: 2,
-    title: "项目二：一个很棒的 App",
-    description: "一个功能齐全的效率工具，使用 XX 技术栈开发，解决了 XX 痛点。",
+    title: "时间表生成器",
+    description: "一个帮助用户快速生成个性化时间表的工具。",
+    image: "/src/assets/p2-streamlit-preview.png", // Placeholder image, user can replace later
     links: [
-      { text: "GitHub 仓库", url: "#" },
-      { text: "在线演示", url: "#" }
-    ]
-  },
-  {
-    id: 3,
-    title: "项目三：技术博客",
-    description: "基于 (Markdown/Headless CMS) 搭建的个人技术分享平台。",
-    links: [
-      { text: "查看博客", url: "#" }
+      { text: "查看详情", url: "#" } // Placeholder URL
     ]
   }
 ])
@@ -175,6 +168,7 @@ function handleMouseLeave(event) {
             @mousemove="handleMouseMove"
             @mouseleave="handleMouseLeave"
           >
+            <img :src="project.image" :alt="project.title" class="project-image" v-if="project.image">
             <h3>{{ project.title }}</h3>
             <p>{{ project.description }}</p>
             <div class="project-links">
@@ -349,6 +343,14 @@ p {
   /* transform is now handled by JS */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
+.project-card .project-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Cover the area, cropping if necessary */
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
 .project-card h3 {
   font-size: 1.6rem;
   margin-top: 0;
