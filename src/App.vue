@@ -4,9 +4,9 @@ import anime from 'animejs'
 
 // --- 1. 个人简介数据 ---
 const profile = ref({
-  name: "张三", // Example name
-  title: "全栈工程师 | 创新者 | 持续学习者", // Example title
-  bio: "你好！我是一名充满激情和创造力的全栈工程师，专注于构建高性能、用户友好的Web应用程序。我热爱解决复杂问题，并不断学习新技术以提升开发效率和用户体验。" // Example bio
+  name: "John Doe", // Example name
+  title: "Full-stack Engineer | Innovator | Lifelong Learner", // Example title
+  bio: "Hello! I'm a passionate and creative Full-stack Engineer, focused on building high-performance, user-friendly web applications. I love solving complex problems and continuously learning new technologies to improve development efficiency and user experience." // Example bio
 })
 
 const nameLetters = computed(() => {
@@ -22,21 +22,21 @@ const nameLetters = computed(() => {
 const projects = ref([
   {
     id: 1,
-    title: "个人作品集网站",
-    description: "使用 Vue 3 和 Vite 构建的响应式个人网站，展示我的前端开发技能、项目经验和技术博客文章。",
+    title: "Personal Portfolio Website",
+    description: "A responsive personal website built with Vue 3 and Vite, showcasing my front-end development skills, project experience, and technical blog posts.",
     image: "/src/assets/p2-streamlit-preview.png",
     links: [
-      { text: "访问网站", url: "https://your-personal-website.com" },
+      { text: "Visit Website", url: "https://your-personal-website.com" },
       { text: "GitHub", url: "https://github.com/your-username/personal-website" }
     ]
   },
   {
     id: 2,
-    title: "智能时间表生成器",
-    description: "一个基于AI算法的智能时间表生成工具，用户可自定义课程、活动和偏好，自动生成最优时间安排。",
+    title: "Smart Schedule Generator",
+    description: "An AI-powered smart schedule generation tool that allows users to customize courses, activities, and preferences to automatically create an optimal schedule.",
     image: "/src/assets/p2-streamlit-preview.png",
     links: [
-      { text: "查看演示", url: "#" },
+      { text: "View Demo", url: "#" },
       { text: "GitHub", url: "https://github.com/your-username/schedule-generator" }
     ]
   }
@@ -151,10 +151,10 @@ function handleMouseLeave(event) {
   <div class="page-wrapper">
     <nav class="main-nav">
       <ul>
-        <li><a href="#about-me">关于我</a></li>
-        <li><a href="#academic-achievements">学术成就</a></li>
-        <li><a href="#projects">项目</a></li>
-        <li><a href="#contact">联系</a></li>
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#academic-achievements">Academic Achievements</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
     <div class="content-container">
@@ -169,28 +169,28 @@ function handleMouseLeave(event) {
       </section>
 
       <section id="academic-achievements" class="academic-achievements">
-        <h2 class="section-title">学术成就</h2>
+        <h2 class="section-title">Academic Achievements</h2>
         <div class="achievements-list">
-          <h3>教育背景</h3>
+          <h3>Education Background</h3>
           <ul>
-            <li><strong>XX大学</strong> - 计算机科学与技术学士 (2018-2022)</li>
-            <li>主修：软件工程、数据结构、算法设计</li>
+            <li><strong>XX University</strong> - Bachelor of Computer Science and Technology (2018-2022)</li>
+            <li>Majors: Software Engineering, Data Structures, Algorithm Design</li>
           </ul>
-          <h3>研究成果</h3>
+          <h3>Research Achievements</h3>
           <ul>
-            <li><strong>基于机器学习的图像识别系统</strong> - 毕业设计项目 (2022)</li>
-            <li>开发了一个能够识别多种物体的高精度图像识别模型。</li>
+            <li><strong>Machine Learning-based Image Recognition System</strong> - Graduation Project (2022)</li>
+            <li>Developed a high-precision image recognition model capable of recognizing various objects.</li>
           </ul>
-          <h3>荣誉与奖项</h3>
+          <h3>Honors and Awards</h3>
           <ul>
-            <li><strong>校级优秀毕业生</strong> (2022)</li>
-            <li><strong>全国大学生软件设计大赛二等奖</strong> (2021)</li>
+            <li><strong>Outstanding Graduate (University Level)</strong> (2022)</li>
+            <li><strong>Second Prize in National University Software Design Competition</strong> (2021)</li>
           </ul>
         </div>
       </section>
 
       <section id="projects" class="projects">
-        <h2 class="section-title">我的项目</h2>
+        <h2 class="section-title">My Projects</h2>
         <div class="project-grid">
           <div 
             class="project-card" 
@@ -217,7 +217,7 @@ function handleMouseLeave(event) {
       </section>
 
       <section id="contact" class="socials">
-        <h2 class="section-title">联系我</h2>
+        <h2 class="section-title">Contact Me</h2>
         <div class="social-icons">
           <a 
             v-for="social in socials" 
