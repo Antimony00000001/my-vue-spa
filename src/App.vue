@@ -637,6 +637,8 @@ p {
   background-color: var(--section-bg-3);
   padding-top: 10px; /* Greatly reduced top padding */
   padding-bottom: 110px; /* Slightly increased bottom padding */
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .project-grid {
