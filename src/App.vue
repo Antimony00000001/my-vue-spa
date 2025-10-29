@@ -74,6 +74,11 @@ const tagline = ref(null)
 const bio = ref(null)
 const projectCards = ref([])
 const socialLinks = ref([])
+const isNavOpen = ref(false)
+
+const toggleNav = () => {
+  isNavOpen.value = !isNavOpen.value
+}
 
 onBeforeMount(() => {
   projectCards.value = []
@@ -149,7 +154,14 @@ function handleMouseLeave(event) {
 
 <template>
   <div class="page-wrapper">
-    <nav class="main-nav">
+    <button @click="toggleNav" class="nav-toggle-btn">
+      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav :class="['main-nav', { 'is-open': isNavOpen }]">
       <ul>
         <li><a href="#about-me">About Me</a></li>
         <li><a href="#academic-achievements">Academic Achievements</a></li>
@@ -243,22 +255,48 @@ html {
   scroll-behavior: smooth;
 }
 
+.nav-toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001; /* Higher than nav */
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.nav-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
 .main-nav {
   position: fixed;
-  top: 20px; /* Offset from top */
-  left: 20px; /* Offset from left */
-  width: 180px; /* Smaller width */
-  /* height: 100vh; */ /* Remove full height */
+  top: 0;
+  left: -200px; /* Start off-screen */
+  width: 180px;
+  height: 100vh; /* Full height */
   background-color: var(--card-bg);
   box-shadow: var(--shadow);
   z-index: 1000;
-  padding: 20px; /* Adjust padding */
-  text-align: center; /* Center text */
-  border-radius: var(--border-radius); /* Rounded corners */
-  /* overflow-y: auto; */ /* Remove scrolling for now, can add if needed */
+  padding: 20px;
+  text-align: center;
+  border-radius: 0; /* No border-radius for full height */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */ /* Remove align-items */
+  transition: left 0.3s ease; /* Smooth transition */
+}
+
+.main-nav.is-open {
+  left: 0; /* Slide in */
 }
 
 .main-nav ul {
@@ -337,11 +375,10 @@ html {
 
 .content-container {
   /* flex-grow: 1; */ /* Remove flex-grow */
-  max-width: 1024px; /* Slightly wider content area for a more open feel */
-  margin: 0 auto; /* Center the content */
-  padding: 80px 40px; /* Increased padding for more breathing room */
+  max-width: none; /* Allow content to take full width */
+  margin: 0; /* Remove auto margin */
+  padding: 80px 40px; /* Adjust padding for full width content */
   box-sizing: border-box;
-  /* margin-left: 250px; */ /* Remove offset for the fixed left navigation */
   padding-top: 80px; /* Add padding to the top to account for the floating nav */
 }
 
@@ -409,7 +446,7 @@ p {
 }
 .profile .bio {
   font-size: 1.2rem;
-  max-width: 800px;
+  max-width: none;
   margin: 30px auto 0;
   color: var(--text-secondary);
 }
@@ -535,9 +572,6 @@ p {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .content-container {
-    padding: 60px 25px;
-  }
   .profile h1 {
     font-size: 3rem;
   }
@@ -568,9 +602,6 @@ p {
 }
 
 @media (max-width: 480px) {
-  .content-container {
-    padding: 40px 20px;
-  }
   .profile h1 {
     font-size: 2.5rem;
   }
