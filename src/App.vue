@@ -28,7 +28,7 @@ const projects = ref([
     id: 1,
     title: "Personal Portfolio Website",
     description: "A responsive personal website built with Vue 3 and Vite, showcasing my front-end development skills, project experience, and technical blog posts.",
-    image: "/src/assets/p2-streamlit-preview.png",
+    image: "/src/assets/p1-preview.png",
     links: [
       { text: "Visit Website", url: "https://your-personal-website.com" },
       { text: "GitHub", url: "https://github.com/your-username/personal-website" }
@@ -38,9 +38,9 @@ const projects = ref([
     id: 2,
     title: "Smart Schedule Generator",
     description: "An AI-powered smart schedule generation tool that allows users to customize courses, activities, and preferences to automatically create an optimal schedule.",
-    image: "/src/assets/p2-streamlit-preview.png",
+    image: "/src/assets/p2-preview.png",
     links: [
-      { text: "View Demo", url: "#" },
+      { text: "Visit Website", url: "#" },
       { text: "GitHub", url: "https://github.com/your-username/schedule-generator" }
     ]
   }
