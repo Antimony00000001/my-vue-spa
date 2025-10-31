@@ -30,8 +30,8 @@ const projects = ref([
     description: "Smart schedule generation tool that allows users to customize courses, activities, and preferences to automatically create an optimal schedule.",
     image: "/src/assets/p1-preview.png",
     links: [
-      { "text": "Visit Website", "url": "#" },
-      { "text": "GitHub", "url": "https://timetablev1-4rfgm5xwcsnjftm3jbmtmb.streamlit.app/" }
+      { "text": "Visit Website", "url": "https://timetablev1-4rfgm5xwcsnjftm3jbmtmb.streamlit.app/" },
+      { "text": "GitHub", "url": "https://github.com/Applwaae/timetablev1" }
     ]
   },
   {
@@ -40,8 +40,8 @@ const projects = ref([
     description: "An AI-powered chatting robot that can assist you",
     image: "/src/assets/p2-preview.png",
     links: [
-      { "text": "Visit Website", "url": "#" },
-      { "text": "GitHub", "url": "https://aichatbot-9fahrsv79da58puyzmoce6.streamlit.app/" }
+      { "text": "Visit Website", "url": "https://aichatbot-9fahrsv79da58puyzmoce6.streamlit.app/" },
+      { "text": "GitHub", "url": "https://github.com/Applwaae/aichatbot" }
     ]
   }
 ])
