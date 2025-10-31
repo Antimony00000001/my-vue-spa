@@ -273,35 +273,29 @@ function handleMouseLeave(event) {
           <ul>
             <li><strong>Harrow International School Hong Kong</strong>, Hong Kong, Grade 11 - 12 (2024-Present)
               <ul>
-                <li>TOEFL: 112</li>
-                <li>SAT: 1540 (Reading and Writing 780; Math 760)</li>
+                <li><span class="highlight-prominent">TOEFL</span>: <span class="highlight-prominent">112</span></li>
+                <li><span class="highlight-prominent">SAT</span>: <span class="highlight-prominent">1540 (Reading and Writing 780; Math 760)</span></li>
               </ul>
             </li>
             <li><strong>Diocesan Girls' School</strong>, Hong Kong, Grades 9 -11 (2022-2024)</li>
           </ul>
           <h3>Honors and Awards</h3>
           <ul>
-            <li>Outstanding Writing Style Prize, Harvard International Review Academic Writing Contest 2025, G12</li>
-            <li>Gold Award, The 8th National Youth Artificial Intelligence Innovation Challenge 2025, G12</li>
-            <li>Silver Award, BPhO Online Senior Physics Challenge 2025, G12</li>
-            <li>STEM Scholarship, Cambridge Centre for International Research 2024, G11</li>
-            <li>Global Distinction Award, Australian Science Olympiads (Physics) 2024, G11</li>
-            <li>2nd Runner Up Award, Senior Secondary Python Programming Contest 2024, G11</li>
-            <li>Best Group Award for Technology Product Solutions in the Aseeder Global Volunteering Programs 2025, G12</li>
+            <li><span class="highlight-prominent">Gold Award, The 8th National Youth Artificial Intelligence Innovation Challenge 2025, G12</span></li>
           </ul>
           <h3>Academic Enrichment & Research</h3>
           <ul>
             <li><strong>Research on Renewable Energy</strong>, Research Assistance (2025)
               <ul>
                 <li>Studied on various renewable energy and technologies under the guidance of Prof. Nasr Ghoniem at UCLA</li>
-                <li>Produced a research report on “Review and Design of a Wave Energy Conversion System” and earned a grade A</li>
+                <li><span class="highlight-prominent">Produced a research report on “Review and Design of a Wave Energy Conversion System” and earned a grade A</span></li>
                 <li>Link: <a href="https://www.researchgate.net/publication/394143469_Review_and_Design_of_a_Wave_Energy_Conversion_System" target="_blank">Review and Design of a Wave Energy Conversion System</a></li>
               </ul>
             </li>
             <li><strong>Research on Structural Dynamics and Vibrations</strong>, Research Assistance (2024)
               <ul>
                 <li>Mentored by UCLA Professor Jiann-Wen Woody Ju to explore free vibration analysis of SDOF equation of motion...</li>
-                <li>Published the research paper on the 3rd International Conference on Mechatronics and Smart Systems (CONF-MSS 2025) and EWA Publishing</li>
+                <li><span class="highlight-prominent">Published the research paper on the 3rd International Conference on Mechatronics and Smart Systems (CONF-MSS 2025) and EWA Publishing</span></li>
                 <li>Link: <a href="https://www.ewadirect.com/proceedings/ace/article/view/26390" target="_blank">The Interplay of Structural Stiffness and Mechanical Vibrations in Multi-Level Constructions</a></li>
               </ul>
             </li>
@@ -813,6 +807,19 @@ p {
   color: var(--primary-color); /* Use primary color on hover */
   transform: scale(1.3); /* More pronounced scale on hover */
 }
+
+.social-link:hover {
+  color: var(--primary-color); /* Use primary color on hover */
+  transform: scale(1.3); /* More pronounced scale on hover */
+}
+
+.highlight-prominent {
+  background-color: #FFD700; /* Gold for prominent highlight */
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
 .social-link svg {
   display: block;
   width: 40px; /* Larger icons */
