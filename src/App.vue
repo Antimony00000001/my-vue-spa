@@ -4,13 +4,13 @@ import anime from 'animejs'
 
 // --- 1. 个人简介数据 ---
 const profile = ref({
-  name: "MyName", // Example name
+  name: "Apple Ma",
   title: [
-    { text: "Self-starter", color: "#FF6347" },
-    { text: "Growing developer", color: "#4682B4" },
-    { text: "STEM Enthusiast", color: "#32CD32" }
+    { "text": "Self-starter", "color": "#FF6347" },
+    { "text": "Growing developer", "color": "#4682B4" },
+    { "text": "STEM Enthusiast", "color": "#32CD32" }
   ],
-  bio: "Hello! I'm a passionate and creative Full-stack Engineer, focused on building high-performance, user-friendly web applications. I love solving complex problems and continuously learning new technologies to improve development efficiency and user experience." // Example bio
+  bio: "Hello! I'm here to make this world a better place."
 })
 
 const nameLetters = computed(() => {
@@ -26,22 +26,22 @@ const nameLetters = computed(() => {
 const projects = ref([
   {
     id: 1,
-    title: "Personal Portfolio Website",
-    description: "A responsive personal website built with Vue 3 and Vite, showcasing my front-end development skills, project experience, and technical blog posts.",
+    title: "Smart Schedule Generator",
+    description: "Smart schedule generation tool that allows users to customize courses, activities, and preferences to automatically create an optimal schedule.",
     image: "/src/assets/p1-preview.png",
     links: [
-      { text: "Visit Website", url: "https://your-personal-website.com" },
-      { text: "GitHub", url: "https://github.com/your-username/personal-website" }
+      { "text": "Visit Website", "url": "#" },
+      { "text": "GitHub", "url": "https://timetablev1-4rfgm5xwcsnjftm3jbmtmb.streamlit.app/" }
     ]
   },
   {
     id: 2,
-    title: "Smart Schedule Generator",
-    description: "An AI-powered smart schedule generation tool that allows users to customize courses, activities, and preferences to automatically create an optimal schedule.",
+    title: "AI chatting robot",
+    description: "An AI-powered chatting robot that can assist you",
     image: "/src/assets/p2-preview.png",
     links: [
-      { text: "Visit Website", url: "#" },
-      { text: "GitHub", url: "https://github.com/your-username/schedule-generator" }
+      { "text": "Visit Website", "url": "#" },
+      { "text": "GitHub", "url": "https://aichatbot-9fahrsv79da58puyzmoce6.streamlit.app/" }
     ]
   }
 ])
@@ -51,22 +51,13 @@ const socials = ref([
   {
     id: 1,
     name: "GitHub",
-    url: "https://github.com/your-username", // Example GitHub URL
-    // GitHub Icon SVG Path
+    url: "https://github.com/Applwaae",
     svgIcon: "M9 19c-4.3 1.4 -4.3-1.8 -5-2.2c.7 0 1.4-.3 2.1-.7c-1.3-.3 -2.3-1.4 -2.3-2.8c0-1.3 .5-2.3 1.3-3.1c-.1-.3 -.6-1.5 .1-3.1c0 0 1-.3 3.3 1.2c1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2c.7 1.6 .2 2.8 .1 3.1c.8 .8 1.3 1.8 1.3 3.1c0 1.4-1 2.5-2.3 2.8c.7 .4 1.3 1.1 1.3 2.2c0 1.6-.0 2.9-.0 3.3c0 .3 .2 .7 .7 .6c3.7-1.2 6.3-4.5 6.3-8.5C22 6.1 17.9 2 12 2S2 6.1 2 12c0 4 2.6 7.3 6.3 8.5c.5 .1 .7-.3 .7-.6c0-.4-.0-1.7-.0-3.3z"
   },
   {
     id: 2,
-    name: "LinkedIn", // Changed to LinkedIn for a more common professional network
-    url: "https://www.linkedin.com/in/your-profile", // Example LinkedIn URL
-    // LinkedIn Icon SVG Path (simplified)
-    svgIcon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.159V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.923-2.063-2.065 0-1.145.92-2.066 2.063-2.066 1.145 0 2.064.922 2.064 2.066 0 1.142-.92 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454c.98 0 1.772-.773 1.772-1.729V1.729C24 .774 23.204 0 22.225 0z"
-  },
-  {
-    id: 3,
     name: "Email",
-    url: "mailto:your-email@example.com", // Example Email URL
-    // Email Icon SVG Path
+    url: "mailto:applwaae@gmail.com",
     svgIcon: "M22 4H2C.9 4 0 4.9 0 6v12c0 1.1 .9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM20 6l-8 5l-8-5h16zM2 18V8l10 6.2L22 8v10H2z"
   }
 ])
