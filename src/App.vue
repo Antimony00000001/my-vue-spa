@@ -232,6 +232,7 @@ function handleMouseLeave(event) {
         <polyline points="7 10 12 15 17 10"></polyline>
         <line x1="12" y1="15" x2="12" y2="3"></line>
       </svg>
+      Resume
     </a>
     <nav :class="['main-nav', { 'is-open': isNavOpen }]">
       <ul>
@@ -277,28 +278,16 @@ function handleMouseLeave(event) {
               </ul>
             </li>
             <li><strong>Diocesan Girls' School</strong>, Hong Kong, Grades 9 -11 (2022-2024)</li>
-            <li><strong>St. Stephen's College</strong>, Hong Kong, Grades 9 (2019-2021)</li>
           </ul>
           <h3>Honors and Awards</h3>
           <ul>
             <li>Outstanding Writing Style Prize, Harvard International Review Academic Writing Contest 2025, G12</li>
             <li>Gold Award, The 8th National Youth Artificial Intelligence Innovation Challenge 2025, G12</li>
-            <li>Honor Roll, Bebras Computing Challenge 2025, G12</li>
             <li>Silver Award, BPhO Online Senior Physics Challenge 2025, G12</li>
-            <li>Commendation, British Physics Olympiad Round 1 2025, G12</li>
             <li>STEM Scholarship, Cambridge Centre for International Research 2024, G11</li>
             <li>Global Distinction Award, Australian Science Olympiads (Physics) 2024, G11</li>
-            <li>National Proficiency Award, Australian Math Competition 2024, G11</li>
-            <li>Excellence, “CrownCAD Cup” Qualifying Competition 2024, G11</li>
-            <li>Silver Award, UKMT Senior Mathematical Challenge 2024, G11</li>
             <li>2nd Runner Up Award, Senior Secondary Python Programming Contest 2024, G11</li>
             <li>Best Group Award for Technology Product Solutions in the Aseeder Global Volunteering Programs 2025, G12</li>
-            <li>Distinction Award, Hypatia Math Competition 2024, G11</li>
-            <li>Distinction Award, Galois Math Competition 2023, G10</li>
-            <li>Distinction Award, Cayley Math Competition 2023, G9</li>
-            <li>Bronze Award, Hong Kong Education Bureau Junior Secondary Science Online Self-learning Scheme 2022, G10</li>
-            <li>Third Prize, Algorithm Programming Design Special Competition and the World Robot Competition Python Programming Competition (Guangdong Province) 2022, G10</li>
-            <li>Level 3 Certificate, LAMDA Speaking in Public 2024, G11</li>
           </ul>
           <h3>Academic Enrichment & Research</h3>
           <ul>
@@ -306,25 +295,16 @@ function handleMouseLeave(event) {
               <ul>
                 <li>Studied on various renewable energy and technologies under the guidance of Prof. Nasr Ghoniem at UCLA</li>
                 <li>Produced a research report on “Review and Design of a Wave Energy Conversion System” and earned a grade A</li>
-                <li>Link: <a href="https://www.example.com/renewable-energy-report" target="_blank">Review and Design of a Wave Energy Conversion System</a></li>
+                <li>Link: <a href="https://www.researchgate.net/publication/394143469_Review_and_Design_of_a_Wave_Energy_Conversion_System" target="_blank">Review and Design of a Wave Energy Conversion System</a></li>
               </ul>
             </li>
             <li><strong>Research on Structural Dynamics and Vibrations</strong>, Research Assistance (2024)
               <ul>
                 <li>Mentored by UCLA Professor Jiann-Wen Woody Ju to explore free vibration analysis of SDOF equation of motion...</li>
-                <li>Completed the final research paper on Investigation in Structural Dynamics and gained a grade A</li>
                 <li>Published the research paper on the 3rd International Conference on Mechatronics and Smart Systems (CONF-MSS 2025) and EWA Publishing</li>
-                <li>Link: <a href="https://www.example.com/structural-dynamics-paper" target="_blank">The Interplay of Structural Stiffness and Mechanical Vibrations in Multi-Level Constructions</a></li>
+                <li>Link: <a href="https://www.ewadirect.com/proceedings/ace/article/view/26390" target="_blank">The Interplay of Structural Stiffness and Mechanical Vibrations in Multi-Level Constructions</a></li>
               </ul>
             </li>
-            <li><strong>PZMC Number Theory Camp</strong>, Selective Student (2025)
-              <ul>
-                <li>Worked on the rigorous admission challenge questions...</li>
-                <li>Engaged in interactive lectures, group problem solving sessions,</li>
-                <li>Accomplished a final project on "Cryptography beyond RSA"</li>
-              </ul>
-            </li>
-            <li><strong>AwesomeMath Summer Program</strong>, Selective Student (2024)</li>
           </ul>
         </div>
       </section>
@@ -425,12 +405,13 @@ html {
   background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  border-radius: 24px; /* Adjusted for text */
+  padding: 8px 16px; /* Added padding */
+  height: 48px; /* Keep height consistent */
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px; /* Space between icon and text */
   cursor: pointer;
   box-shadow: var(--shadow);
   transition: transform 0.3s ease;
