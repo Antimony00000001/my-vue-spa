@@ -1,62 +1,88 @@
-## Key Information from App.vue
-
-### 1. Profile Data
+### 4. Academic Achievements Data
 
 ```json
 {
-  "name": "Apple Ma",
-  "avatar": "/src/assets/avatar.jpg",
-  "title": [
-    { "text": "Self-starter", "color": "#FF6347" },
-    { "text": "Growing developer", "color": "#4682B4" },
-    { "text": "STEM Enthusiast", "color": "#32CD32" }
+  "education": [
+    {
+      "institution": "Harrow International School Hong Kong",
+      "location": "Hong Kong",
+      "grade": "Grade 11 - 12",
+      "years": "2024-Present",
+      "details": [
+        "TOEFL: 112",
+        "SAT: 1540 (Reading and Writing 780; Math 760)"
+      ]
+    },
+    {
+      "institution": "Diocesan Girls' School",
+      "location": "Hong Kong",
+      "grade": "Grades 9 -11",
+      "years": "2022-2024"
+    },
+    {
+      "institution": "St. Stephen's College",
+      "location": "Hong Kong",
+      "grade": "Grades 9",
+      "years": "2019-2021"
+    }
   ],
-  "bio": "Hello! I'm here to make this world a better place."
+  "honorsAndAwards": [
+    "Outstanding Writing Style Prize, Harvard International Review Academic Writing Contest 2025, G12",
+    "Gold Award, The 8th National Youth Artificial Intelligence Innovation Challenge 2025, G12",
+    "Honor Roll, Bebras Computing Challenge 2025, G12",
+    "Silver Award, BPhO Online Senior Physics Challenge 2025, G12",
+    "Commendation, British Physics Olympiad Round 1 2025, G12",
+    "STEM Scholarship, Cambridge Centre for International Research 2024, G11",
+    "Global Distinction Award, Australian Science Olympiads (Physics) 2024, G11",
+    "National Proficiency Award, Australian Math Competition 2024, G11",
+    "Excellence, “CrownCAD Cup” Qualifying Competition 2024, G11",
+    "Silver Award, UKMT Senior Mathematical Challenge 2024, G11",
+    "2nd Runner Up Award, Senior Secondary Python Programming Contest 2024, G11",
+    "Best Group Award for Technology Product Solutions in the Aseeder Global Volunteering Programs 2025, G12",
+    "Distinction Award, Hypatia Math Competition 2024, G11",
+    "Distinction Award, Galois Math Competition 2023, G10",
+    "Distinction Award, Cayley Math Competition 2023, G9",
+    "Bronze Award, Hong Kong Education Bureau Junior Secondary Science Online Self-learning Scheme 2022, G10",
+    "Third Prize, Algorithm Programming Design Special Competition and the World Robot Competition Python Programming Competition (Guangdong Province) 2022, G10",
+    "Level 3 Certificate, LAMDA Speaking in Public 2024, G11"
+  ],
+  "academicEnrichment": [
+    {
+      "title": "Research on Renewable Energy",
+      "role": "Research Assistance",
+      "year": "2025",
+      "details": [
+        "Studied on various renewable energy and technologies under the guidance of Prof. Nasr Ghoniem at UCLA",
+        "Produced a research report on “Review and Design of a Wave Energy Conversion System” and earned a grade A",
+        "Link: Review and Design of a Wave Energy Conversion System"
+      ]
+    },
+    {
+      "title": "Research on Structural Dynamics and Vibrations",
+      "role": "Research Assistance",
+      "year": "2024",
+      "details": [
+        "Mentored by UCLA Professor Jiann-Wen Woody Ju to explore free vibration analysis of SDOF equation of motion...",
+        "Completed the final research paper on Investigation in Structural Dynamics and gained a grade A",
+        "Published the research paper on the 3rd International Conference on Mechatronics and Smart Systems (CONF-MSS 2025) and EWA Publishing",
+        "Link: The Interplay of Structural Stiffness and Mechanical Vibrations in Multi-Level Constructions"
+      ]
+    },
+    {
+      "title": "PZMC Number Theory Camp",
+      "role": "Selective Student",
+      "year": "2025",
+      "details": [
+        "Worked on the rigorous admission challenge questions...",
+        "Engaged in interactive lectures, group problem solving sessions,",
+        "Accomplished a final project on \"Cryptography beyond RSA\""
+      ]
+    },
+    {
+      "title": "AwesomeMath Summer Program",
+      "role": "Selective Student",
+      "year": "2024"
+    }
+  ]
 }
-```
-
-### 2. Project Data
-
-```json
-[
-  {
-    "id": 1,
-    "title": "Smart Schedule Generator",
-    "description": "Smart schedule generation tool that allows users to customize courses, activities, and preferences to automatically create an optimal schedule.",
-    "image": "/src/assets/p1-preview.png",
-    "links": [
-      { "text": "Visit Website", "url": "https://timetablev1-4rfgm5xwcsnjftm3jbmtmb.streamlit.app/" },
-      { "text": "GitHub", "url": "https://github.com/Applwaae/timetablev1" }
-    ]
-  },
-  {
-    "id": 2,
-    "title": "AI chatting robot",
-    "description": "An AI-powered chatting robot that can assist you",
-    "image": "/src/assets/p2-preview.png",
-    "links": [
-      { "text": "Visit Website", "url": "https://aichatbot-9fahrsv79da58puyzmoce6.streamlit.app/" },
-      { "text": "GitHub", "url": "https://github.com/Applwaae/aichatbot" }
-    ]
-  }
-]
-```
-
-### 3. Social Links Data
-
-```json
-[
-  {
-    "id": 1,
-    "name": "GitHub",
-    "url": "https://github.com/Applwaae",
-    "svgIcon": "M9 19c-4.3 1.4 -4.3-1.8 -5-2.2c.7 0 1.4-.3 2.1-.7c-1.3-.3 -2.3-1.4 -2.3-2.8c0-1.3 .5-2.3 1.3-3.1c-.1-.3 -.6-1.5 .1-3.1c0 0 1-.3 3.3 1.2c1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2c.7 1.6 .2 2.8 .1 3.1c.8 .8 1.3 1.8 1.3 3.1c0 1.4-1 2.5-2.3 2.8c.7 .4 1.3 1.1 1.3 2.2c0 1.6-.0 2.9-.0 3.3c0 .3 .2 .7 .7 .6c3.7-1.2 6.3-4.5 6.3-8.5C22 6.1 17.9 2 12 2S2 6.1 2 12c0 4 2.6 7.3 6.3 8.5c.5 .1 .7-.3 .7-.6c0-.4-.0-1.7-.0-3.3z"
-  },
-  {
-    "id": 2,
-    "name": "Email",
-    "url": "mailto:applwaae@gmail.com",
-    "svgIcon": "M22 4H2C.9 4 0 4.9 0 6v12c0 1.1 .9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM20 6l-8 5l-8-5h16zM2 18V8l10 6.2L22 8v10H2z"
-  }
-]
 ```
