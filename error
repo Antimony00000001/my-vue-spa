@@ -1,18 +1,53 @@
-[plugin:vite:vue] D:/web-projects/vue-spa/src/App.vue:269:1: Unexpected }
-D:/web-projects/vue-spa/src/App.vue:522:1
-521 |  }
-522 |  
-523 |  
-    |  ^
-524 |  
-525 |
-    at Input.error (D:\web-projects\vue-spa\node_modules\postcss\lib\input.js:135:16)
-    at Parser.unexpectedClose (D:\web-projects\vue-spa\node_modules\postcss\lib\parser.js:587:22)
-    at Parser.end (D:\web-projects\vue-spa\node_modules\postcss\lib\parser.js:330:12)
-    at Parser.parse (D:\web-projects\vue-spa\node_modules\postcss\lib\parser.js:456:16)
-    at parse (D:\web-projects\vue-spa\node_modules\postcss\lib\parse.js:11:12)
-    at new LazyResult (D:\web-projects\vue-spa\node_modules\postcss\lib\lazy-result.js:165:16)
-    at Processor.process (D:\web-projects\vue-spa\node_modules\postcss\lib\processor.js:53:14)
-    at doCompileStyle (D:\web-projects\vue-spa\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:19519:36)
-    at Object.compileStyleAsync (D:\web-projects\vue-spa\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:19439:10)
-    at transformStyle (file:///D:/web-projects/vue-spa/node_modules/@vitejs/plugin-vue/dist/index.js:1863:40)
+2025-10-31T05:18:45.857059Z	Cloning repository...
+2025-10-31T05:18:47.099689Z	From https://github.com/Applwaae/pweb
+2025-10-31T05:18:47.100223Z	 * branch            c3e6336bc6ddf7c12cf9713040a1b6fb2843ecea -> FETCH_HEAD
+2025-10-31T05:18:47.100359Z	
+2025-10-31T05:18:47.530994Z	HEAD is now at c3e6336 fix: update TypeScript configurations
+2025-10-31T05:18:47.531525Z	
+2025-10-31T05:18:47.617485Z	
+2025-10-31T05:18:47.618006Z	Using v2 root directory strategy
+2025-10-31T05:18:47.64564Z	Success: Finished cloning repository files
+2025-10-31T05:18:49.497492Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-10-31T05:18:49.498661Z	
+2025-10-31T05:18:50.609807Z	No wrangler.toml file found. Continuing.
+2025-10-31T05:18:50.67793Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2025-10-31T05:18:50.694838Z	Installing project dependencies: npm clean-install --progress=false
+2025-10-31T05:19:28.123544Z	
+2025-10-31T05:19:28.12391Z	added 98 packages, and audited 99 packages in 37s
+2025-10-31T05:19:28.124142Z	
+2025-10-31T05:19:28.124288Z	14 packages are looking for funding
+2025-10-31T05:19:28.124418Z	  run `npm fund` for details
+2025-10-31T05:19:28.124841Z	
+2025-10-31T05:19:28.125004Z	found 0 vulnerabilities
+2025-10-31T05:19:28.271436Z	Executing user command: npm run build
+2025-10-31T05:19:28.66075Z	
+2025-10-31T05:19:28.661023Z	> vue-spa@0.0.0 build
+2025-10-31T05:19:28.66117Z	> vue-tsc -b && vite build
+2025-10-31T05:19:28.661281Z	
+2025-10-31T05:19:31.113637Z	[36mvite v7.1.11 [32mbuilding for production...[36m[39m
+2025-10-31T05:19:31.235991Z	transforming...
+2025-10-31T05:19:31.358943Z	
+2025-10-31T05:19:31.359282Z	/savor-wind.png referenced in /savor-wind.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+2025-10-31T05:19:31.855106Z	[32m✓[39m 13 modules transformed.
+2025-10-31T05:19:31.944293Z	rendering chunks...
+2025-10-31T05:19:31.95008Z	computing gzip size...
+2025-10-31T05:19:31.954694Z	[2mdist/[22m[32mindex.html                 [39m[1m[2m 0.39 kB[22m[1m[22m[2m │ gzip:  0.26 kB[22m
+2025-10-31T05:19:31.955046Z	[2mdist/[22m[2massets/[22m[35mindex-Cotugpjp.css  [39m[1m[2m 9.15 kB[22m[1m[22m[2m │ gzip:  2.38 kB[22m
+2025-10-31T05:19:31.955221Z	[2mdist/[22m[2massets/[22m[36mindex-DC4vvNbz.js   [39m[1m[2m88.16 kB[22m[1m[22m[2m │ gzip: 35.14 kB[22m
+2025-10-31T05:19:31.955312Z	[32m✓ built in 813ms[39m
+2025-10-31T05:19:32.017282Z	Finished
+2025-10-31T05:19:32.996657Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-10-31T05:19:32.997259Z	
+2025-10-31T05:19:34.139794Z	No wrangler.toml file found. Continuing.
+2025-10-31T05:19:34.140512Z	Note: No functions dir at /functions found. Skipping.
+2025-10-31T05:19:34.140651Z	Validating asset output directory
+2025-10-31T05:19:36.861213Z	Deploying your site to Cloudflare's global network...
+2025-10-31T05:19:39.166696Z	Uploading... (1/4)
+2025-10-31T05:19:39.874512Z	Uploading... (2/4)
+2025-10-31T05:19:40.120684Z	Uploading... (3/4)
+2025-10-31T05:19:40.51782Z	Uploading... (4/4)
+2025-10-31T05:19:40.518515Z	✨ Success! Uploaded 3 files (1 already uploaded) (1.78 sec)
+2025-10-31T05:19:40.518789Z	
+2025-10-31T05:19:40.967435Z	✨ Upload complete!
+2025-10-31T05:19:44.688385Z	Success: Assets published!
+2025-10-31T05:19:46.388539Z	Success: Your site was deployed!
