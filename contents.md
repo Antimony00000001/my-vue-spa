@@ -5,6 +5,7 @@
 ```json
 {
   "name": "Apple Ma",
+  "avatar": "/src/assets/avatar.jpg",
   "title": [
     { "text": "Self-starter", "color": "#FF6347" },
     { "text": "Growing developer", "color": "#4682B4" },

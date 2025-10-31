@@ -5,6 +5,7 @@ import anime from 'animejs'
 // --- 1. 个人简介数据 ---
 const profile = ref({
   name: "Apple Ma",
+  avatar: "/src/assets/avatar.jpg", // Added avatar path
   title: [
     { "text": "Self-starter", "color": "#FF6347" },
     { "text": "Growing developer", "color": "#4682B4" },
@@ -237,7 +238,7 @@ function handleMouseLeave(event) {
 
       <section id="about-me" class="profile section-with-wave">
         <div class="avatar-name-group">
-          <img src="./assets/avatar.png" alt="Profile Avatar" class="avatar" ref="avatar">
+          <img :src="profile.avatar" alt="Profile Avatar" class="avatar" ref="avatar">
           <h1 ref="nameH1">
             <span v-for="(letter, index) in nameLetters" :key="index" :class="letter.class" v-html="letter.char"></span>
           </h1>
